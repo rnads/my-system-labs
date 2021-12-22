@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use TJGazel\LaravelDocBlockAcl\Facades\Acl;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Acl::routes([
 ]);
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'oi';
 });
 
 Route::get('/dashboard', function () {

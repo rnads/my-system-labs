@@ -1,3 +1,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+@import 'bootstrap.min.css';
+@import 'fontawesome.min.css';
+@import 'sb-admin-2.min.css';
+@import 'reload.css';
