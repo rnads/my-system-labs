@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AclTablesSeeder::class,
-            UserSeeder::class,
         ]);
+        // \App\Models\User::factory(10)->create();
     }
 }

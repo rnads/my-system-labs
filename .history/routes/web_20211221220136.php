@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Acl::routes([
-    'middleware' => ['auth', 'acl'],
-    'prefix' => 'acl',
-    'name' => 'acl.'
-]);
-
 Route::get('/', function () {
     return view('welcome');
 });

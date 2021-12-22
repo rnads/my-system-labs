@@ -13,7 +13,7 @@ use TJGazel\LaravelDocBlockAcl\Models\traits\UserAcl as UserAcltrait;
 
 class User extends Authenticatable implements UserAclContract
 {
-    use HasApiTokens, HasFactory, Notifiable, UserAcltrait;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
