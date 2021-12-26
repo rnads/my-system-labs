@@ -8,12 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-use TJGazel\LaravelDocBlockAcl\Models\Contracts\UserAcl as UserAclContract;
-use TJGazel\LaravelDocBlockAcl\Models\traits\UserAcl as UserAcltrait;
-
-class User extends Authenticatable implements UserAclContract
+class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, UserAcltrait;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.

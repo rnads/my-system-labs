@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use TJGazel\LaravelDocBlockAcl\Facades\Acl;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +13,6 @@ use TJGazel\LaravelDocBlockAcl\Facades\Acl;
 |
 */
 
-Acl::routes([
-    'middleware' => ['auth', 'acl'],
-    'prefix' => 'acl',
-    'name' => 'acl.'
-]);
-
 Route::get('/', function () {
-    return 'oi';
+    return view('welcome');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
