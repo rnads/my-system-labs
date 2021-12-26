@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use TJGazel\LaravelDocBlockAcl\Facades\Acl;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
+Acl::routes([
+    'middleware' => ['auth', 'acl'],
+    'prefix' => 'acl',
+    'name' => 'acl.'
+]);
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
