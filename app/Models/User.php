@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use TJGazel\LaravelDocBlockAcl\Models\Contracts\UserAcl as UserAclContract;
 use TJGazel\LaravelDocBlockAcl\Models\traits\UserAcl as UserAcltrait;
@@ -43,4 +44,15 @@ class User extends Authenticatable implements UserAclContract
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /**
+     * The checkins that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function checkins(): BelongsToMany
+    {
+        return $this->belongsToMany(Classes::class, 'users_has_classes', 'user_id', 'class_id');
+    }
 }

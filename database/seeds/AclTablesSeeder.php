@@ -1,7 +1,5 @@
 <?php
 
-namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
@@ -27,8 +25,8 @@ class AclTablesSeeder extends Seeder
     {
         DB::table(Config::get('acl.table.groups'))->insert([
             ['name' => 'Admin', 'description' => 'Group for Admin'],
-            ['name' => 'Students', 'description' => 'Group for Students'],
-            ['name' => 'Teachers', 'description' => 'Group for Teachers'],
+            ['name' => 'Manager', 'description' => 'Group for Manager'],
+            ['name' => 'Client', 'description' => 'Group for Client'],
         ]);
     }
 
