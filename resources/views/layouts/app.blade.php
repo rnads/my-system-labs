@@ -23,19 +23,20 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     {{ __('Classes') }}
                 </a>
 
                 @auth
-                    
+                @if(auth()->user()->groups->where('id', 1)->first())
                 <a class="navbar-brand" href="{{ route('teacher') }}">
                     {{ __('Teachers') }}
                 </a>
                 <a class="navbar-brand" href="{{ route('student') }}">
                     {{ __('Students') }}
                 </a>
-                
+                @endif
+
                 @endauth
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -56,12 +57,6 @@
                         @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @endif
-
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
                         @else
@@ -93,10 +88,11 @@
         </main>
     </div>
     @livewireScripts
-    
+
     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     <link rel="stylesheet" href="{{ config('sweetalert.animatecss') }}">
     <script src="{{ $cdn ?? asset('vendor/sweetalert/sweetalert.all.js')  }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
+
 </html>

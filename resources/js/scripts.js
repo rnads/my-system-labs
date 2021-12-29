@@ -1,5 +1,4 @@
 window.addEventListener('Sweetalert2', event => {
-  console.log(event)
   switch (event.detail.type) {
     case 'warning':
       Sweetalert2.fire(event.detail.message, event.detail.title, 'warning')

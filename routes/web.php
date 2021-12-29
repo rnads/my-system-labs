@@ -15,13 +15,14 @@ use TJGazel\LaravelDocBlockAcl\Facades\Acl;
 |
 */
 
+Auth::routes();
+
 Acl::routes([
     'middleware' => ['auth', 'acl'],
     'prefix' => 'acl',
     'name' => 'acl.'
 ]);
 
-Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +31,7 @@ Route::get('/', function () {
 
 Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/show/{classes}', [HomeController::class, 'show'])->name('show');
     Route::get('/student', [StudentController::class, 'index'])->name('student');
     Route::get('/teacher', [TeacherController::class, 'index'])->name('teacher');
 });

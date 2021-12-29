@@ -7,12 +7,19 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
+
+/**
+ * @permissionResource('Teacher')
+ */
 class IndexComponent extends Component
 {
     public $items = [];
     public $user;
     public $form = false;
 
+     /**
+     * @permissionName('Permissions')
+     */
     public function render()
     {
         $this->getTeachers();

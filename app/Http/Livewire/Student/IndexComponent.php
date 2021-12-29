@@ -6,14 +6,19 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
-use RealRashid\SweetAlert\Facades\Alert;
 
+/**
+ * @permissionResource('Student')
+ */
 class IndexComponent extends Component
 {
     public $items = [];
     public $user;
     public $form = false;
 
+     /**
+     * @permissionName('Permissions')
+     */
     public function render()
     {
         $this->getStudents();
