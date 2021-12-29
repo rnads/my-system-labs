@@ -17,7 +17,7 @@ Obs.: caso tenha senha, edite o .env nos campos abaixo:<br>
 DB_USERNAME=NULL<br>
 DB_PASSWORD=NULL<br>
 
-Edite o arquivo .env nos seguintes campos, para o envio do e-mail:
+Edite o arquivo .env nos seguintes campos, para o envio de e-mail:
 
 MAIL_MAILER=smtp <br>
 MAIL_HOST=mailhog<br>
@@ -26,7 +26,8 @@ MAIL_USERNAME=null<br>
 MAIL_PASSWORD=null<br>
 MAIL_ENCRYPTION=null<br>
 MAIL_FROM_ADDRESS=null<br>
-MAIL_FROM_NAME="${APP_NAME}"<br>
+MAIL_FROM_NAME="${APP_NAME}"<BR>
+QUEUE_CONNECTION=database<br>
 
 Obs.: Site recomendado para testes grátis de envio: [mailtrap](https://mailtrap.io/)
 
